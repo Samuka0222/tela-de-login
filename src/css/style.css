@@ -1,0 +1,6 @@
+@import "./root.css";
+
+main {
+    background-color: var(--corBg);
+    color: white;
+}

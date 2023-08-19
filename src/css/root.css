@@ -1,0 +1,11 @@
+:root {
+    --corPrimaria: #27DEBF;
+    --corSecundaria: #305250;
+    --corComplementar: #2a4241;
+    --corBg: #263238;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
