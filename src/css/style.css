@@ -3,4 +3,72 @@
 main {
     background-color: var(--corBg);
     color: white;
+    height: 100vh;
+    width: 100vw;
 }
+
+.container-conteudo {
+    height: 100vh;
+    width: 100vw;
+}
+
+.imagem-fundo {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-fundo img {
+    width: 50%;
+    height: 50%;
+}
+
+.tela-login {
+    width: 50vw;
+    display: flex;
+    justify-content: center!important;
+    align-items: center!important;
+}
+
+.elementos-login {
+    justify-content: center!important;
+}
+
+.container-texto {
+    text-align: center;
+}
+
+.container-texto h1 {
+    font-family: var(--fontDestaque);
+    font-size: 3em;
+    font-weight: bolder;
+    padding-bottom: 24px;
+}
+
+.container-texto p {
+    margin-left: auto!important;
+    margin-right: auto!important;
+    text-align: center;
+    width: 60%;
+    font-family: var(--fontPadrao);
+    font-size: 1.5em;
+    padding-bottom: 8px;
+}
+
+.container-inputs {
+    width: 50%;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container-inputs input {
+    padding: 8px;
+    margin-bottom: 24px;
+}
+
+
+

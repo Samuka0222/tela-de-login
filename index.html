@@ -11,27 +11,27 @@
 </head>
 <body>
     <main>
-        <div class="row">
-            <div class="col-6">
+        <div class="row container-conteudo">
+            <div class="col-6 imagem-fundo">
                 <img src="src/img/3094350.png" alt="Vetor de login">
             </div>
 
-            <div class="col-6">
-                <div class="container">
+            <div class="col-6 tela-login">
+                <div class="container elementos-login">
                     <div class="container-texto">
                         <h1>Efetue o Login.</h1>
                         <p>Preencha os campos abaixo com seus dados para efetuar o login e acessar o conteúdo</p>
                     </div>
 
-                    <div class="container-inputs">
-                        <input type="text" id="input-email">
-                        <input type="text" id="input-senha">
+                    <div class="container-inputs d-flex flex-column">
+                        <label for="input-email"><i class="fa-solid fa-user"></i></label>
+                        <input type="text" id="input-email" placeholder="" required>
+                        <input type="text" id="input-senha" required>
                     </div>
 
                     <div class="row">
                         <div class="col-6">
-                            <input type="checkbox" id="input-check">
-                            <label for="input-check">Manter logado</label>
+                            <a>Não possui conta?</a>
                         </div>
 
                         <div class="col-6">
