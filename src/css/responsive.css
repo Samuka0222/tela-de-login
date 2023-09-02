@@ -1,0 +1,13 @@
+/* DESKTOP => 992px ou +  */
+
+
+/* DESKTOP E TABLET => 768px até 991px */
+
+
+/* TABLET => 576px até 767px  */
+
+/* TABLETS E CELULARES => 0px até 766px  */
+
+@media (max-width: 768px) {
+    
+}

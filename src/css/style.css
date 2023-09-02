@@ -1,5 +1,7 @@
 @import "./root.css";
 
+/* -------  TELA DE LOGIN  ----------- */
+
 main {
     background-color: var(--corBg);
     color: white;
@@ -20,16 +22,21 @@ main {
 }
 
 .imagem-fundo img {
-    width: 50%;
-    height: 50%;
+    min-width: 30%;
+    max-width: 60%;
+    min-height: 30%;
+    max-height: 60%;
 }
 
 .tela-login {
-    width: 50vw!important;
+    min-width: 35vw!important;
+    max-width: 45vw!important;
     display: flex;
     justify-content: center!important;
     align-items: center!important;
     color: black;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .elementos-login {
@@ -37,7 +44,8 @@ main {
     background-color: white;
     padding: 32px;
     border-radius: 15px;
-    width: 300px
+    width: 400px;
+    box-shadow: 4px 6px 12px 5px rgba(0, 0, 0, 0.4);
 }
 
 .container-texto {
@@ -66,17 +74,29 @@ main {
 }
 
 .container-inputs {
-    width: 50%;
+    min-width: 30%;
+    max-width: 50%;
     padding: 16px;
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-right: auto;
     margin-left: auto;
 }
 
 .container-inputs input {
+    width: 300px;
     padding: 8px;
     margin-bottom: 24px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+label > i {
+    color: var(--corPrimaria);
+    font-size: 20px;
+    margin-right: 7px;
 }
 
 .tela-login .botoes {
@@ -117,5 +137,15 @@ a:hover {
     color: var(--corBg);
 }
 
+/* -------  TELA DE CADASTRO  ----------- */
 
-
+.tela-cadastro {
+    min-width: 35vw!important;
+    max-width: 45vw!important;
+    display: flex;
+    justify-content: center!important;
+    align-items: center!important;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
