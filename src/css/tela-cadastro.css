@@ -82,4 +82,17 @@
 .botoes-cadastro a:visited {
     color: black;
     text-decoration: none;
-} 
+}
+
+#btnSubmit {
+    padding: 6px!important;
+    width: 200px;
+    font-size: 1.2em;
+    background-color: var(--corPrimaria);
+    color: white;
+    font-weight: bolder;
+    font-family: var(--fontDestaque);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.4);
+}
