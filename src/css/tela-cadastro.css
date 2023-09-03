@@ -2,23 +2,19 @@
 @import "./main.css";
 
 .tela-cadastro {
-    min-width: 500px!important;
-    max-width: 950px!important;
-    height: 800px;
     display: flex;
     justify-content: center!important;
     align-items: center!important;
     color: black;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .form-cadastro {
+    margin: 50px auto auto auto;
     justify-content: center!important;
     background-color: white;
     padding: 32px;
     border-radius: 15px;
-    width: 800px;
+    max-width: 800px!important;
     box-shadow: 4px 6px 12px 5px rgba(0, 0, 0, 0.4);
 }
 
@@ -37,13 +33,13 @@
 }
 
 .form-input-nome input, .form-input-sobrenome input {
-    width: 230px;
+    width: 250px;
     margin-left: 5px;
 }
 
 
 .inputs {
-    width: 500px;
+    width: 490px;
     padding: 8px;
     margin-bottom: 24px;
     border-radius: 10px;
@@ -52,7 +48,11 @@
 }
 
 .form-input-dados {
-    margin-bottom: 10px;
+    width: 500px!important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    justify-content: center;
 }
 
 .form-input-dados label {
@@ -65,3 +65,21 @@
     color: var(--corPrimaria);
     margin-right: 5px;
 }
+
+.botoes-cadastro {
+    text-align: center;
+}
+
+.botoes-cadastro a {
+    text-decoration: none;
+}
+
+.botoes-cadastro a:hover {
+    cursor: pointer;
+    color: var(--corPrimaria)!important;
+}
+
+.botoes-cadastro a:visited {
+    color: black;
+    text-decoration: none;
+} 
