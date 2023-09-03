@@ -67,7 +67,8 @@ main {
     margin-left: auto!important;
     margin-right: auto!important;
     text-align: center;
-    width: 400px;
+    min-width: 300px;
+    width: 500px;
     font-family: var(--fontPadrao);
     font-size: 1.3em;
     padding-bottom: 8px;
@@ -99,17 +100,44 @@ label > i {
     margin-right: 7px;
 }
 
+.container-input-senha {
+    position: relative;
+}
+
+.exibir-senha {
+    position: absolute;
+    top: 15%;
+    right: 10px;
+    transform: translateY(-5%);
+    cursor: pointer;
+}
+
+.exibir-senha i {
+    font-size: 20px;
+    color: var(--corPrimaria);
+}
+
 .tela-login .botoes {
     width: 50%;
     justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    text-decoration: none;
 }
 
-a:hover {
+.tela-login .botoes a {
+    text-decoration: none;
+}
+
+.tela-login .botoes a:hover {
     cursor: pointer;
     color: var(--corPrimaria)!important;
+}
+
+.tela-login .botoes a:visited {
+    color: black;
+    text-decoration: none;
 }
 
 .botao-logar {
@@ -139,13 +167,3 @@ a:hover {
 
 /* -------  TELA DE CADASTRO  ----------- */
 
-.tela-cadastro {
-    min-width: 35vw!important;
-    max-width: 45vw!important;
-    display: flex;
-    justify-content: center!important;
-    align-items: center!important;
-    color: black;
-    margin-left: auto;
-    margin-right: auto;
-}

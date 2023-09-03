@@ -1,0 +1,67 @@
+@import "./root.css";
+@import "./main.css";
+
+.tela-cadastro {
+    min-width: 500px!important;
+    max-width: 950px!important;
+    height: 800px;
+    display: flex;
+    justify-content: center!important;
+    align-items: center!important;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-cadastro {
+    justify-content: center!important;
+    background-color: white;
+    padding: 32px;
+    border-radius: 15px;
+    width: 800px;
+    box-shadow: 4px 6px 12px 5px rgba(0, 0, 0, 0.4);
+}
+
+.form-inputs {
+    padding: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inputs-nome-sobrenome {
+    justify-content: space-between;
+}
+
+.inputs-nome-sobrenome label {
+    font-size: 18px;
+}
+
+.form-input-nome input, .form-input-sobrenome input {
+    width: 230px;
+    margin-left: 5px;
+}
+
+
+.inputs {
+    width: 500px;
+    padding: 8px;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+.form-input-dados {
+    margin-bottom: 10px;
+}
+
+.form-input-dados label {
+    margin-top: 10px;
+    margin-bottom: 7px;
+    font-size: 18px;
+}
+
+.form-input-dados i {
+    color: var(--corPrimaria);
+    margin-right: 5px;
+}
