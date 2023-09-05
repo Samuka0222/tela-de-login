@@ -1,7 +1,3 @@
-let usuarios = {
-    user: "samuka0222",
-    senha: "Xbox360mm"
-}
 
 const exibirSenha = document.querySelector('#exibirSenha')
 const form = document.querySelector('[data-formulario]')
