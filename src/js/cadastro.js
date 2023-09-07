@@ -1,3 +1,6 @@
+import validaSenha from "./modules/validaSenha.js"
+import validaUsuario from "./modules/validaUsuario.js"
+
 class User {
     constructor(userId, nome, sobrenome, email, usuario, senha) {
         this.userId = userId
@@ -36,7 +39,14 @@ form.addEventListener('submit', (e) => {
     const usuarioEmail = document.getElementById('input-email').value
     const usuarioUser = document.getElementById('input-user').value
     const usuarioSenha = document.getElementById('input-senha').value
+    const usuarioSenhaConfirmada = document.getElementById('input-senha-confirmada').value
 
+    const usuarioValido = validaUsuario(usuarioUser)
+    const senhaValida = validaSenha(usuarioSenha, usuarioSenhaConfirmada)
+    if (!senhaValida) {
+        console.log(senhaValida)
+        return
+    }
     
     // Cria um id dinamico com pelo menos 4 digitos
     const nextID = idCounter()
