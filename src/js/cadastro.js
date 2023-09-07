@@ -9,8 +9,21 @@ class User {
     }
 }
 
-let usuarios = []
-let idCounter = 1
+let usuarios = JSON.parse(localStorage.getItem('usuarios')) || []
+usuarios = usuarios.map((data) => new User(data.userId, data.nome, data.sobrenome, data.email, data.usuario, data.senha));
+
+let idCounter = () => {
+    // Encontra o ID mais alto atual
+        let maxId = -1
+        usuarios.forEach((cliente) => {
+            const id = parseInt(cliente.userId.substr(4), 10)
+            if (!isNaN(id) && id > maxId) {
+                maxId = id
+            }
+        })
+        return maxId + 1
+        
+}
 
 
 const form = document.getElementById('formCadastro')
@@ -24,14 +37,16 @@ form.addEventListener('submit', (e) => {
     const usuarioUser = document.getElementById('input-user').value
     const usuarioSenha = document.getElementById('input-senha').value
 
+    
     // Cria um id dinamico com pelo menos 4 digitos
-    const userID = 'user' + idCounter.toString().padStart(4, '0') 
+    const nextID = idCounter()
+    const userID = 'user' + nextID.toString().padStart(4, '0') 
 
     let newUser = new User(userID, usuarioNome, usuarioSobrenome, usuarioEmail, usuarioUser, usuarioSenha)
 
     usuarios.push(newUser)
 
-    idCounter++
+    localStorage.setItem('usuarios', JSON.stringify(usuarios))
 
     console.log(usuarios)
 })
