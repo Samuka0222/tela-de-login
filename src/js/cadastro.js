@@ -1,6 +1,8 @@
 import validaSenha from "./modules/validaSenha.js"
+import validaSenhaConfirmada from "./modules/validaSenhaConfirmada.js"
 import validaUsuario from "./modules/validaUsuario.js"
 import validaEmail from "./modules/validaEmail.js"
+import mensagensDeErro from "./modules/mensagens.js"
 
 class User {
     constructor(userId, nome, sobrenome, email, usuario, senha) {
@@ -35,6 +37,7 @@ const formCadastro = document.getElementById('formCadastro')
 formCadastro.addEventListener('submit', (e) => {
     e.preventDefault()
 
+    // Variaveis guardando o valor digitado no input
     const usuarioNome = document.getElementById('input-nome').value
     const usuarioSobrenome = document.getElementById('input-sobrenome').value
     const usuarioEmail = document.getElementById('input-email').value
@@ -42,29 +45,33 @@ formCadastro.addEventListener('submit', (e) => {
     const usuarioSenha = document.getElementById('input-senha').value
     const usuarioSenhaConfirmada = document.getElementById('input-senha-confirmada').value
 
-    
     //Validação de E-mail
     const emailValido = validaEmail(usuarioEmail)
     if (!emailValido) {
-        console.log(emailValido)
+        mensagensDeErro.email()
         return
     }
 
     // validação de usuário
     const usuarioValido = validaUsuario(usuarioUser)
     if (!usuarioValido) {
-        console.log(usuarioValido)
+        mensagensDeErro.usuario()
         return
     }
     
     // Validação de senha
-    const senhaValida = validaSenha(usuarioSenha, usuarioSenhaConfirmada)
+    const senhaValida = validaSenha(usuarioSenha)
     if (!senhaValida) {
-        console.log(senhaValida)
+        mensagensDeErro.senha()
         return
     }
 
-
+    // Validação de confirmação de senha
+    const senhaConfirmadaValida = validaSenhaConfirmada(usuarioSenha, usuarioSenhaConfirmada)
+    if (!senhaConfirmadaValida) {
+        mensagensDeErro.senhaConfirmada()
+        return
+    }
     
     // Cria um id dinamico com pelo menos 4 digitos
     const nextID = idCounter()

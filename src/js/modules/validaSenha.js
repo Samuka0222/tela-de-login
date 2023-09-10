@@ -1,5 +1,5 @@
-export default function validaSenha(senha, senhaConfirmada) {
-    if (senha.length < 8 && senha !== senhaConfirmada) {
+export default function validaSenha(senha) {
+    if (senha.length < 8) {
         return false
     }
 
