@@ -19,7 +19,7 @@
             </div>
 
             <section class="col-lg-6 tela-login">
-                <form id="campo-login" data-formulario="form" class="container elementos-login">
+                <form id="campo-login" data-formulario class="container elementos-login">
                     <div class="container-texto">
                         <h1>Efetue o <strong>Login</strong>.</h1>
                         <p>Preencha os campos abaixo com seus dados para efetuar o login e acessar o conteúdo.</p>
@@ -28,7 +28,7 @@
                     <div class="container-inputs d-flex flex-column">
                         <div class="container-input-user">
                             <label for="input-email"><i class="fa-solid fa-user"></i></label>
-                            <input type="text" id="input-user" placeholder="Digite seu usuário aqui." required>
+                            <input type="text" id="input-user" placeholder="Digite seu usuário ou E-mail aqui." required>
                         </div>
                         <div class="container-input-senha">
                             <label for="input-senha"><i class="fa-solid fa-lock"></i></label>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
 
-
+                    <div class="container-feedback" id="feedback"></div>
 
                     <div class="row botoes">
                         <div class="col-lg-6">
@@ -50,13 +50,13 @@
                     </div>
 
                     <div class="botao-logar">
-                        <button id="botao-Submit" onclick="efetuarLogin()">Entrar</button>
+                        <button type="submit" id="botao-Submit">Entrar</button>
                     </div>
                 </form>
             </section>
         </div>
     </main>
 
-    <script src="src/js/main.js"></script>
+    <script type="module" src="src/js/login.js"></script>
 </body>
 </html>
