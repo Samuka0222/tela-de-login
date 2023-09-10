@@ -43,10 +43,17 @@ form.addEventListener('submit', (e) => {
 
     const usuarioValido = validaUsuario(usuarioUser)
     const senhaValida = validaSenha(usuarioSenha, usuarioSenhaConfirmada)
+
     if (!senhaValida) {
         console.log(senhaValida)
         return
     }
+
+    if (!usuarioValido) {
+        console.log(usuarioValido)
+        return
+    }
+
     
     // Cria um id dinamico com pelo menos 4 digitos
     const nextID = idCounter()
@@ -62,3 +69,4 @@ form.addEventListener('submit', (e) => {
 })
 
 
+export default usuarios
