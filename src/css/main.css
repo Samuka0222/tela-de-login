@@ -13,6 +13,8 @@ main {
     color: white;
     height: 100vh;
     width: 100vw;
+    box-sizing: border-box;
+    background-attachment: fixed;
 }
 
 .container-conteudo {
@@ -117,7 +119,7 @@ label > i {
 
 .exibir-senha {
     position: absolute;
-    top: 15%;
+    top: 25%;
     right: 10px;
     transform: translateY(-5%);
     cursor: pointer;
@@ -200,4 +202,8 @@ label > i {
     border-radius: 10px;
     text-decoration: underline;
 
+}
+
+.hidden {
+    display: none !important;
 }

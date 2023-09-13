@@ -39,25 +39,25 @@
                         <div class="form-input-dados col-lg-12 d-flex flex-column">
                             <label for="input-email"><span><i class="fa-solid fa-envelope"></i></span><strong>E-mail:</strong></label>
                             <input type="text" class="inputs" id="input-email" placeholder="Digite seu e-mail." required>
-                            <div class="container-feedback" id="feedback" data-feedback="email"></div>
+                            <div class="container-feedback animate__animated" id="feedback" data-feedback="email"></div>
 
                             <label for="input-user"><span><i class="fa-solid fa-user"></i></span><strong>Usuário:</strong></label>
                             <input type="text" class="inputs" id="input-user" placeholder="Digite seu usuário." required>
-                            <div class="container-feedback" id="feedback" data-feedback="usuario"></div>
+                            <div class="container-feedback animate__animated" id="feedback" data-feedback="usuario"></div>
 
                             <label for="input-senha"><span><i class="fa-solid fa-lock"></i></span><strong>Senha:</strong></label>
-                            <input type="password" class="inputs" id="input-senha" placeholder="Digite a sua senha." required>
-                            <div class="senha__requisitos hidden">
-                                <p><span id="senha-requisitos-status">❌</span>No mínimo 8 caracteres</p>
-                                <p>Adicione pelo menos 1 letra maiúscula</p>
-                                <p>Adicione pelo menos 1 digito númerico</p>
-                                <p>Adicione pelo menos 1 caractere especial</p>
+                            <input type="password" class="inputs" id="input-senha" placeholder="Digite a sua senha." required data-senha>
+                            <div class="senha__requisitos hidden" id="senhaRequisitos">
+                                <p>- No mínimo 8 caracteres</p>
+                                <p>- Adicione pelo menos 1 letra maiúscula</p>
+                                <p>- Adicione pelo menos 1 digito númerico</p>
+                                <p>- Adicione pelo menos 1 caractere especial</p>
                             </div>
-                            <div class="container-feedback" id="feedback" data-feedback="senha"></div>
+                            <div class="container-feedback animate__animated" id="feedback" data-feedback="senha"></div>
 
                             <label for="input-senha-confirmada"><span><i class="fa-solid fa-lock"></i></span><strong>Confirme sua Senha:</strong></label>
                             <input type="password" class="inputs" id="input-senha-confirmada" placeholder="Digite a sua senha novamente." required>
-                            <div class="container-feedback" id="feedback" data-feedback="senhaConfirmada"></div>
+                            <div class="container-feedback animate__animated" id="feedback" data-feedback="senhaConfirmada"></div>
                         </div>
                     </div>
 

@@ -1,6 +1,9 @@
 @import "./root.css";
 @import "./main.css";
 
+main {
+    overflow: hidden;
+}
 
 .tela-cadastro {
     display: flex;
@@ -67,14 +70,20 @@
     margin-right: 5px;
 }
 
-.senha_requisitos {
+.senha__requisitos {
     display: flex;
     height: 130px;
+    flex-direction: column;
+    margin-top: -10px;
 }
 
-.senha_requisitos > p {
+.senha__requisitos > p {
     font-size: 14px !important;
-    margin-bottom: 20;
+    margin-bottom: 8px !important;
+}
+
+.senha__requisitos span {
+    margin-right: 3px;
 }
 
 .botoes-cadastro {

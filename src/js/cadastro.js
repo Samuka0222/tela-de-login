@@ -20,33 +20,42 @@ usuarios = usuarios.map((data) => new User(data.userId, data.nome, data.sobrenom
 
 let idCounter = () => {
     // Encontra o ID mais alto atual
-        let maxId = -1
-        usuarios.forEach((cliente) => {
-            const id = parseInt(cliente.userId.substr(4), 10)
-            if (!isNaN(id) && id > maxId) {
-                maxId = id
-            }
-        })
-        return maxId + 1
-        
+    let maxId = -1
+    usuarios.forEach((cliente) => {
+        const id = parseInt(cliente.userId.substr(4), 10)
+        if (!isNaN(id) && id > maxId) {
+            maxId = id
+        }
+    })
+    return maxId + 1
 }
+
+// Detalhes
+const senhaRequisitos = document.getElementById('senhaRequisitos')
+
+// Inputs
+const inputSenha = document.getElementById('input-senha')
+
+inputSenha.addEventListener('focus', () => {
+    senhaRequisitos.classList.remove('hidden')
+})
+
+inputSenha.addEventListener('blur', () => {
+    senhaRequisitos.classList.add('hidden')
+})
 
 
 const formCadastro = document.getElementById('formCadastro')
-
 formCadastro.addEventListener('submit', (e) => {
     e.preventDefault()
-
+    
     // Variaveis guardando o valor digitado no input
-    const usuarioNome = document.getElementById('input-nome').value
-    const usuarioSobrenome = document.getElementById('input-sobrenome').value
-    const usuarioEmail = document.getElementById('input-email').value
-    const usuarioUser = document.getElementById('input-user').value
-    const usuarioSenha = document.getElementById('input-senha').value
-    const usuarioSenhaConfirmada = document.getElementById('input-senha-confirmada').value
-
-    // Inputs
-    const inputSenha = document.getElementById('input-senha')
+    let usuarioNome = document.getElementById('input-nome').value
+    let usuarioSobrenome = document.getElementById('input-sobrenome').value
+    let usuarioEmail = document.getElementById('input-email').value
+    let usuarioUser = document.getElementById('input-user').value
+    let usuarioSenha = document.getElementById('input-senha').value
+    let usuarioSenhaConfirmada = document.getElementById('input-senha-confirmada').value
 
     //Validação de E-mail
     const emailValido = validaEmail(usuarioEmail)
@@ -61,12 +70,10 @@ formCadastro.addEventListener('submit', (e) => {
         mensagensDeErro.usuario()
         return
     }
-    
-    // Validação de senha
-    inputSenha.addEventListener('focus', () => {
-        
-    })
-    const senhaValida = validaSenha(usuarioSenha)
+
+    // Validação da senha
+    const senha = inputSenha.value
+    const senhaValida = validaSenha(senha)
     if (!senhaValida) {
         mensagensDeErro.senha()
         return
@@ -78,10 +85,10 @@ formCadastro.addEventListener('submit', (e) => {
         mensagensDeErro.senhaConfirmada()
         return
     }
-    
+
     // Cria um id dinamico com pelo menos 4 digitos
     const nextID = idCounter()
-    const userID = 'user' + nextID.toString().padStart(4, '0') 
+    const userID = 'user' + nextID.toString().padStart(4, '0')
 
     let newUser = new User(userID, usuarioNome, usuarioSobrenome, usuarioEmail, usuarioUser, usuarioSenha)
 
