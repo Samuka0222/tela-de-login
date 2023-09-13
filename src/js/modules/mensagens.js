@@ -2,7 +2,7 @@ let mensagensDeErro = {
     email: () => {
         const emailFeedback = document.querySelector('[data-feedback="email"]')
         emailFeedback.classList.add('feedback-erro')
-        emailFeedback.innerHTML = "<p>E-mail inválido, tente novamente.</p>"
+        emailFeedback.innerHTML = "<p class='animate__animated animate__shakeX'>E-mail inválido, tente novamente.</p>"
     }, 
     
     usuario: () => {

@@ -1,6 +1,7 @@
 @import "./root.css";
 @import "./main.css";
 
+
 .tela-cadastro {
     display: flex;
     justify-content: center!important;
@@ -64,6 +65,16 @@
 .form-input-dados i {
     color: var(--corPrimaria);
     margin-right: 5px;
+}
+
+.senha_requisitos {
+    display: flex;
+    height: 130px;
+}
+
+.senha_requisitos > p {
+    font-size: 14px !important;
+    margin-bottom: 20;
 }
 
 .botoes-cadastro {

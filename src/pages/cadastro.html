@@ -47,6 +47,12 @@
 
                             <label for="input-senha"><span><i class="fa-solid fa-lock"></i></span><strong>Senha:</strong></label>
                             <input type="password" class="inputs" id="input-senha" placeholder="Digite a sua senha." required>
+                            <div class="senha__requisitos hidden">
+                                <p><span id="senha-requisitos-status">❌</span>No mínimo 8 caracteres</p>
+                                <p>Adicione pelo menos 1 letra maiúscula</p>
+                                <p>Adicione pelo menos 1 digito númerico</p>
+                                <p>Adicione pelo menos 1 caractere especial</p>
+                            </div>
                             <div class="container-feedback" id="feedback" data-feedback="senha"></div>
 
                             <label for="input-senha-confirmada"><span><i class="fa-solid fa-lock"></i></span><strong>Confirme sua Senha:</strong></label>

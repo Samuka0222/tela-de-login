@@ -196,7 +196,8 @@ label > i {
 
 .feedback-erro {
     padding: 2px 12px;
-    background-color: rgba(255, 72, 72, 0.438);
+    color: red;
     border-radius: 10px;
+    text-decoration: underline;
 
 }

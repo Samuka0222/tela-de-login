@@ -45,6 +45,9 @@ formCadastro.addEventListener('submit', (e) => {
     const usuarioSenha = document.getElementById('input-senha').value
     const usuarioSenhaConfirmada = document.getElementById('input-senha-confirmada').value
 
+    // Inputs
+    const inputSenha = document.getElementById('input-senha')
+
     //Validação de E-mail
     const emailValido = validaEmail(usuarioEmail)
     if (!emailValido) {
@@ -60,6 +63,9 @@ formCadastro.addEventListener('submit', (e) => {
     }
     
     // Validação de senha
+    inputSenha.addEventListener('focus', () => {
+        
+    })
     const senhaValida = validaSenha(usuarioSenha)
     if (!senhaValida) {
         mensagensDeErro.senha()
