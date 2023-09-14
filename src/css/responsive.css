@@ -8,6 +8,73 @@
 
 /* TABLETS E CELULARES => 0px até 766px  */
 
-@media (max-width: 768px) {
-    
+@media (max-width: 767px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
+    }
+
+    .no-mobile {
+        display: none !important;
+    }
+
+    .container-conteudo {
+        height: 100vh;
+        width: 100vw;
+        margin: 0 !important;
+    }
+
+    .elementos-login {
+        height: 800px;
+        width: 80vw!important;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-texto p {
+        padding-top: 20px;
+        text-align: justify !important;
+        width: 280px !important;
+        font-size: 1.2em !important;
+    }
+
+    .container-inputs {
+        width: 40% !important;
+    }
+
+    .container-inputs input {
+        width: 280px !important;
+        padding: 12px 0px !important;
+        text-align: center;
+        position: relative;
+    }
+
+    label > i {
+        position: absolute;
+        z-index: 9999;
+    }
+
+    .label-email {
+        top: 48.4%;
+        left: 32px;
+    }
+
+    .label-senha {
+        top: 52%;
+        left: 8px;
+    }
+
+    .exibir-senha {
+        top: 55% !important;
+        right: 10px;
+    }
+
+    .tela-login .botoes {
+        padding: 20px 0px;
+        width: fit-content !important;
+        font-size: 18px;
+    }
 }

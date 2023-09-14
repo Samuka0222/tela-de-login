@@ -15,8 +15,16 @@ form.addEventListener('submit', (e) => {
     if(dadosValidos) {
         window.location.href = "/src/pages/home.html"
     } else {
+        feedback.classList.remove('hidden')
         feedback.classList.add('feedback-erro')
         feedback.innerHTML = "<p>Dados estão incorretos, favor verifique e tente novamente.</p>"
+        setTimeout(() => {
+            feedback.classList.add('animate__fadeOut')
+        }, 3000)
+
+        setTimeout(() => {
+            feedback.classList.add('hidden')
+        }, 4000)
     }
 
 })
