@@ -7,6 +7,19 @@
 /* TABLET => 576px até 767px  */
 
 /* TABLETS E CELULARES => 0px até 766px  */
+@media (max-width: 1205px) {
+    .elementos-login {
+        height: 70% !important;
+        gap: 12px !important;
+    }
+    
+    .tela-login .botoes {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+}
 
 @media (max-width: 767px) {
     body {

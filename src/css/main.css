@@ -38,23 +38,30 @@ main {
 }
 
 .tela-login {
-    min-width: 35vw!important;
-    max-width: 40vw!important;
+    min-width: 50%;
+    max-width: 80%;
+    height: auto;
     display: flex;
-    justify-content: center!important;
-    align-items: center!important;
+    justify-content: center;
+    align-items: center;
     color: black;
     margin-left: auto;
     margin-right: auto;
 }
 
 .elementos-login {
-    justify-content: center!important;
+    height: 60%;
+    justify-content: center;
     background-color: white;
     padding: 32px;
+    margin: 20px;
     border-radius: 15px;
     width: 30vw;
     box-shadow: 4px 6px 12px 5px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-content: space-evenly;
 }
 
 .container-texto {
@@ -63,7 +70,7 @@ main {
 
 .container-texto h1 {
     font-family: var(--fontDestaque);
-    font-size: 2em;
+    font-size: 2.2rem;
     font-weight: bolder;
     padding-bottom: 16px;
 }
@@ -73,30 +80,31 @@ main {
 }
 
 .container-texto p {
-    margin-left: auto!important;
-    margin-right: auto!important;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    min-width: 300px;
-    width: 500px;
+    min-width: 50%;
+    max-width: 70%;
     font-family: var(--fontPadrao);
-    font-size: 1.3em;
+    font-size: 1.4rem;
     padding-bottom: 8px;
 }
 
 .container-inputs {
-    min-width: 40%;
-    max-width: 60%;
-    padding: 16px;
+    min-width: 80%;
+    max-width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: auto;
     margin-left: auto;
+    gap: 15px;
 }
 
-.container-inputs input {
-    width: 300px;
-    padding: 8px;
+.container-input-user input, .container-input-senha input {
+    width: 400px;
+    padding: 12px 8px;
+    font-size: 1.2rem;
     margin-bottom: 24px;
     border-radius: 10px;
     border: none;
@@ -105,7 +113,7 @@ main {
 
 label > i {
     color: var(--corPrimaria);
-    font-size: 20px;
+    font-size: 1.5rem;
     margin-right: 7px;
 }
 
@@ -126,17 +134,18 @@ label > i {
 }
 
 .exibir-senha i {
-    font-size: 20px;
+    font-size: 1.5rem;
     color: var(--corPrimaria);
 }
 
 .tela-login .botoes {
-    width: 50%;
+    width: 70%;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     text-decoration: none;
+    font-size: 1.1rem;
 }
 
 .tela-login .botoes a {
@@ -156,12 +165,12 @@ label > i {
 .botao-logar {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#botao-Submit {
+.botao-submit {
     padding: 6px!important;
     width: 200px;
     font-size: 1.2em;
@@ -174,7 +183,7 @@ label > i {
     box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.4);
 }
 
-#botao-Submit:hover {
+#botao-submit:hover {
     background-color: var(--corSecundaria);
 }
 
