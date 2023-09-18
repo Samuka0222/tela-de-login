@@ -148,8 +148,14 @@ label > i {
     font-size: 1.1rem;
 }
 
+.tela-login .botoes__link {
+    width: 100%;
+}
+
 .tela-login .botoes a {
     text-decoration: none;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .tela-login .botoes a:hover {
@@ -171,7 +177,7 @@ label > i {
 }
 
 .botao-submit {
-    padding: 6px!important;
+    padding: 6px;
     width: 200px;
     font-size: 1.2em;
     background-color: var(--corPrimaria);

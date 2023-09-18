@@ -7,6 +7,7 @@
 /* TABLET => 576px até 767px  */
 
 /* TABLETS E CELULARES => 0px até 766px  */
+
 @media (max-width: 1205px) {
     .elementos-login {
         height: 70% !important;
@@ -21,10 +22,24 @@
     }
 }
 
+@media (min-width: 768px) and (max-width: 1057px) {
+    .container-conteudo {
+        margin: 0 !important;
+    }
+
+    .tela-login {
+        width: 80% !important;
+    }
+
+    .imagem-fundo {
+        display: none !important;
+    }    
+}
+
 @media (max-width: 767px) {
     body {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         box-sizing: border-box;
     }
 
@@ -32,15 +47,19 @@
         display: none !important;
     }
 
+    
     .container-conteudo {
-        height: 100vh;
-        width: 100vw;
+        height: 100%;
+        width: 100%;
         margin: 0 !important;
     }
-
+    
+    .tela-login {
+        width: 95% !important;
+    }
+    
     .elementos-login {
-        height: 800px;
-        width: 80vw!important;
+        height: 90% !important;
         margin-left: auto;
         margin-right: auto;
         display: flex;
@@ -48,18 +67,19 @@
     }
 
     .container-texto p {
-        padding-top: 20px;
-        text-align: justify !important;
-        width: 280px !important;
-        font-size: 1.2em !important;
+        min-width: 100% !important;
+        font-size: 1.3rem !important;
+        margin: 0px auto 0px auto !important;
+        padding: 12px;
     }
 
     .container-inputs {
-        width: 40% !important;
+        margin-top: 20px;
+        min-width: 100% !important;
     }
 
-    .container-inputs input {
-        width: 280px !important;
+    .container-input-user input, .container-input-senha input {
+        width: 320px !important;
         padding: 12px 0px !important;
         text-align: center;
         position: relative;
@@ -68,26 +88,48 @@
     label > i {
         position: absolute;
         z-index: 9999;
+        font-size: 1.6em !important;
     }
 
     .label-email {
-        top: 48.4%;
-        left: 32px;
+        top: 42.9%;
+        left: 36px;
+        transform: translateY(-5%)
     }
 
     .label-senha {
-        top: 52%;
-        left: 8px;
+        top: 25%;
+        left: 15px;
     }
 
     .exibir-senha {
-        top: 55% !important;
-        right: 10px;
+        top: 30% !important;
+        right: 17px;
     }
 
     .tela-login .botoes {
-        padding: 20px 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         width: fit-content !important;
         font-size: 18px;
+        gap: 18px;
     }
+
+    .tela-login .botoes__link {
+        margin-bottom: 1px;
+        font-size: 1.2rem;
+    }
+
+    .botao-logar {
+        margin-top: 16px;
+    }
+
+    .botao-submit {
+        padding: 12px 8px !important;
+        font-size: 1.5em !important;
+    }
+}
+
+@media (max-width: 517px) {
+    
 }
