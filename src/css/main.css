@@ -9,7 +9,7 @@ body {
 }
 
 main {
-    background-color: var(--corBg);
+    background-image: linear-gradient(-45deg, var(--corEscura) 40%, var(--corSecundaria));
     color: white;
     height: 100vh;
     width: 100vw;
@@ -111,6 +111,7 @@ main {
     box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
+
 label > i {
     color: var(--corPrimaria);
     font-size: 1.5rem;
@@ -146,10 +147,18 @@ label > i {
     text-align: center;
     text-decoration: none;
     font-size: 1.1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.tela-login .no-desktop {
+    display: none;
 }
 
 .tela-login .botoes__link {
-    width: 100%;
+    width: fit-content;
 }
 
 .tela-login .botoes a {

@@ -78,32 +78,35 @@
         min-width: 100% !important;
     }
 
+    .tela-login .no-desktop {
+        display: block !important;
+    }
+
+    .container-input-user label, .container-input-senha label {
+        display: flex;
+        margin-bottom: 5px;
+        align-content: center;
+        justify-content: center;
+    }
+
+    label > i {
+        font-size: 1.6em !important;
+    }
+
+    label > strong {
+        color: var(--corPrimaria);
+        font-size: 1.2em;
+    }
+
     .container-input-user input, .container-input-senha input {
         width: 320px !important;
         padding: 12px 0px !important;
         text-align: center;
-        position: relative;
     }
 
-    label > i {
-        position: absolute;
-        z-index: 9999;
-        font-size: 1.6em !important;
-    }
-
-    .label-email {
-        top: 42.9%;
-        left: 36px;
-        transform: translateY(-5%)
-    }
-
-    .label-senha {
-        top: 25%;
-        left: 15px;
-    }
 
     .exibir-senha {
-        top: 30% !important;
+        top: 55% !important;
         right: 17px;
     }
 
