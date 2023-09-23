@@ -84,16 +84,16 @@
 
     .container-input-user label, .container-input-senha label {
         display: flex;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
         align-content: center;
         justify-content: center;
     }
 
     label > i {
-        font-size: 1.6em !important;
+        font-size: 1.3em !important;
     }
 
-    label > strong {
+    .input-label {
         color: var(--corPrimaria);
         font-size: 1.2em;
     }
@@ -106,7 +106,7 @@
 
 
     .exibir-senha {
-        top: 55% !important;
+        top: 57% !important;
         right: 17px;
     }
 
@@ -128,11 +128,112 @@
     }
 
     .botao-submit {
-        padding: 12px 8px !important;
+        padding: 8px !important;
         font-size: 1.5em !important;
     }
 }
 
-@media (max-width: 517px) {
-    
+
+/* ------------- RESPONSIVIDADE TELA DE CADASTRO ------------- */
+@media (min-width: 526px) and (max-width: 780px) {
+    .main-cadastro {
+        overflow: scroll !important;
+    }
+
+    .form-cadastro {
+        width: 660px !important;
+    }
+
+    .texto-cadastro {
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .inputs-nome-sobrenome {
+        display: flex;
+        flex-direction: column;
+        width: 500px!important;
+        margin: auto;
+    }
+
+    .inputs-nome-sobrenome label {
+        margin-top: 10px;
+        margin-bottom: 7px;
+    }
+
+    .form-input-nome input, .form-input-sobrenome input {
+        width: 490px !important;
+        margin-left: 0 !important;
+    }
+
+    .form-inputs {
+        padding-bottom: 0 !important;
+    }
 }
+
+@media (max-width: 525px) {
+    .form-cadastro {
+        width: 390px !important;
+        padding: 16px !important;
+    }
+
+    .texto-cadastro {
+        width: 360px;
+    }
+    
+    .texto-cadastro h1 {
+        font-size: 1.9rem !important;
+        margin-bottom: 0px ;
+    }
+
+    .texto-cadastro p {
+        font-size: 1.2rem !important;
+        padding-top: 0px;
+    }
+
+    .form-inputs {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .inputs-nome-sobrenome {
+        display: flex;
+        flex-direction: column;
+        width: 380px!important;
+        margin: auto;
+    }
+
+    .inputs-nome-sobrenome label {
+        margin-top: 10px;
+        margin-bottom: 7px;
+    }
+
+    .inputs, .form-input-nome input, .form-input-sobrenome input {
+        width: 330px !important;
+        margin-left: 0 !important;
+        margin-bottom: 13px !important;
+
+    }
+
+    .form-input-dados{
+        width: 350px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .form-input-dados > label {
+        width: 350px;
+    }
+
+}
+
+/* ------------- RESPONSIVIDADE TELA HOME ------------- */
+    @media (max-width: 1000px) {
+        .container-texto-home {
+            font-size: 1.6rem;
+            margin: 0px auto 25px auto;
+            width: 300px;
+            line-height: 1.2em;
+        }
+        
+    }

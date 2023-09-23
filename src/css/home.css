@@ -5,11 +5,18 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 h1 {
     font-family: var(--fontDestaque);
-    font-size: 3em;
-    margin-bottom: 25px;
+    font-size: 3rem;
+    margin: 0px auto 25px auto;
+}
+
+iframe {
+    min-width: 300px;
+    width: 480px;
+    max-width: 800px;
 }
 

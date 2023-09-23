@@ -6,14 +6,16 @@ main {
 }
 
 .tela-cadastro {
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center!important;
-    align-items: center!important;
+    align-content: center !important;
     color: black;
 }
 
 .form-cadastro {
-    margin: 50px auto auto auto;
+    margin: auto;
     justify-content: center!important;
     background-color: white;
     padding: 32px;
@@ -33,7 +35,7 @@ main {
 }
 
 .inputs-nome-sobrenome label {
-    font-size: 18px;
+    font-size: 1.1em;
 }
 
 .form-input-nome input, .form-input-sobrenome input {
@@ -92,6 +94,7 @@ main {
 
 .botoes-cadastro a {
     text-decoration: none;
+    font-size: 1.1em;
 }
 
 .botoes-cadastro a:hover {
