@@ -166,6 +166,7 @@ label > i {
     text-decoration: none;
     white-space: nowrap;
     text-align: center;
+    color: black;
 }
 
 .tela-login .botoes a:hover {
