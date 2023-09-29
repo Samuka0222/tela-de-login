@@ -25,7 +25,6 @@ main {
 }
 
 .form-inputs {
-    padding: 16px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -109,6 +108,7 @@ main {
 .botoes-cadastro a {
     text-decoration: none;
     font-size: 1.1em;
+    color: black;
 }
 
 .botoes-cadastro a:hover {
