@@ -96,6 +96,8 @@ formCadastro.addEventListener('submit', (e) => {
 
     localStorage.setItem('usuarios', JSON.stringify(usuarios))
 
+    window.location.href = '/index.html'
+
     console.log(usuarios)
 })
 
