@@ -1,6 +1,5 @@
 import validaSenha from "./modules/validaSenha.js"
 import validaSenhaConfirmada from "./modules/validaSenhaConfirmada.js"
-import validaUsuario from "./modules/validaUsuario.js"
 import validaEmail from "./modules/validaEmail.js"
 import mensagensDeErro from "./modules/mensagens.js"
 
@@ -45,13 +44,6 @@ formCadastro.addEventListener('submit', async (e) => {
     const emailValido = validaEmail(usuarioEmail)
     if (!emailValido) {
         mensagensDeErro.email()
-        return
-    }
-
-    // validação de usuário
-    const usuarioValido = validaUsuario(usuarioUser)
-    if (!usuarioValido) {
-        mensagensDeErro.usuario()
         return
     }
 
