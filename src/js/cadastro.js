@@ -1,3 +1,4 @@
+import verificaRequisitosSenha from "./modules/verificaRequisitosSenha.js"
 import validaSenha from "./modules/validaSenha.js"
 import validaSenhaConfirmada from "./modules/validaSenhaConfirmada.js"
 import validaEmail from "./modules/validaEmail.js"
@@ -13,7 +14,7 @@ class User {
     }
 }
 
-// Detalhes
+// Dialog para requisitos de senha
 const senhaRequisitos = document.getElementById('senhaRequisitos')
 
 // Inputs
@@ -27,15 +28,11 @@ inputSenha.addEventListener('blur', () => {
     senhaRequisitos.classList.add('hidden')
 })
 
-// Validação da senha
+
+// Verificação de requisitos da senha
 inputSenha.addEventListener('input', () => {
     const senha = inputSenha.value
-    console.log(senha)
-    const senhaValida = validaSenha(senha)
-    if (!senhaValida) {
-        mensagensDeErro.senha()
-        return
-    }
+    verificaRequisitosSenha(senha)
 })
 
 const formCadastro = document.getElementById('formCadastro')
@@ -57,15 +54,22 @@ formCadastro.addEventListener('submit', async (e) => {
         return
     }
 
+    // Confirmação de senha
+    const senhaValida = validaSenha(usuarioSenha)
+    if (!senhaValida) {
+        mensagensDeErro.senha()
+        return 
+    }
 
     // Validação de confirmação de senha
-    const senhaConfirmadaValida = validaSenhaConfirmada(usuarioSenha, usuarioSenhaConfirmada)
+    const senhaConfirmadaValida = validaSenhaConfirmada(senha, usuarioSenhaConfirmada)
     if (!senhaConfirmadaValida) {
         mensagensDeErro.senhaConfirmada()
         return
     }
 
     let newUser = new User(usuarioNome, usuarioSobrenome, usuarioEmail, usuarioUser, usuarioSenha)
+    console.log(newUser)
 
     try {
         const resposta = await fetch('http://localhost:8080/clients-data', {
@@ -84,4 +88,6 @@ formCadastro.addEventListener('submit', async (e) => {
     } catch (error) {
         console.error("Erro na solicitação", error)
     }
+
+    // Descobrir como enviar um email de boas vindas após o cadastro
 })
