@@ -27,6 +27,16 @@ inputSenha.addEventListener('blur', () => {
     senhaRequisitos.classList.add('hidden')
 })
 
+// Validação da senha
+inputSenha.addEventListener('input', () => {
+    const senha = inputSenha.value
+    console.log(senha)
+    const senhaValida = validaSenha(senha)
+    if (!senhaValida) {
+        mensagensDeErro.senha()
+        return
+    }
+})
 
 const formCadastro = document.getElementById('formCadastro')
 formCadastro.addEventListener('submit', async (e) => {
@@ -47,13 +57,6 @@ formCadastro.addEventListener('submit', async (e) => {
         return
     }
 
-    // Validação da senha
-    const senha = inputSenha.value
-    const senhaValida = validaSenha(senha)
-    if (!senhaValida) {
-        mensagensDeErro.senha()
-        return
-    }
 
     // Validação de confirmação de senha
     const senhaConfirmadaValida = validaSenhaConfirmada(usuarioSenha, usuarioSenhaConfirmada)

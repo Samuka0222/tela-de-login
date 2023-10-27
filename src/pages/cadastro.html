@@ -47,12 +47,12 @@
 
                             <label for="input-senha"><span><i class="fa-solid fa-lock"></i></span><strong>Senha:</strong></label>
                             <input type="password" class="inputs" id="input-senha" placeholder="Digite a sua senha." required data-senha>
-                            <div class="senha__requisitos hidden" id="senhaRequisitos">
-                                <p>- No mínimo 8 caracteres</p>
-                                <p>- Adicione pelo menos 1 letra maiúscula</p>
-                                <p>- Adicione pelo menos 1 digito númerico</p>
-                                <p>- Adicione pelo menos 1 caractere especial</p>
-                            </div>
+                            <dialog class="senha__requisitos hidden" id="senhaRequisitos" open="false">
+                                    <p><i class="fa-solid fa-circle-xmark" id="icone-minCaracteres"></i> No mínimo 8 caracteres.</p>
+                                    <p><i class="fa-solid fa-circle-xmark" id="icone-letraMaiuscula"></i>Adicione pelo menos 1 letra maiúscula.</p>
+                                    <p><i class="fa-solid fa-circle-xmark" id="icone-digitoNumerico"></i> Adicione pelo menos 1 digito númerico.</p>
+                                    <p><i class="fa-solid fa-circle-xmark" id="icone-caractereEspecial"></i> Adicione pelo menos 1 caractere especial.</p>
+                            </dialog>
                             <div class="container-feedback animate__animated" id="feedback" data-feedback="senha"></div>
 
                             <label for="input-senha-confirmada"><span><i class="fa-solid fa-lock"></i></span><strong>Confirme sua Senha:</strong></label>
@@ -61,8 +61,7 @@
                         </div>
                     </div>
 
-
-                    <div class="row botoes-cadastro">
+                    <div class="botoes-cadastro">
                         <div class="col-lg-12">
                             <a href="/index.html"><strong>Já possui conta?</strong></a>
                         </div>
