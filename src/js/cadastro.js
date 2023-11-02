@@ -14,7 +14,7 @@ class User {
     }
 }
 
-// Detalhes
+// Dialog para requisitos de senha
 const senhaRequisitos = document.getElementById('senhaRequisitos')
 
 // Inputs
@@ -29,7 +29,8 @@ inputSenha.addEventListener('blur', () => {
     senhaRequisitos.classList.add('hidden')
 })
 
-// Validação da senha
+
+// Verificação de requisitos da senha
 inputSenha.addEventListener('input', () => {
     const senha = inputSenha.value
     verificaRequisitosSenha(senha)
@@ -64,13 +65,14 @@ formCadastro.addEventListener('submit', async (e) => {
     }
 
     // Validação de confirmação de senha
-    const senhaConfirmadaValida = validaSenhaConfirmada(usuarioSenha, usuarioSenhaConfirmada)
+    const senhaConfirmadaValida = validaSenhaConfirmada(senha, usuarioSenhaConfirmada)
     if (!senhaConfirmadaValida) {
         mensagensDeErro.senhaConfirmada()
         return
     }
 
     let newUser = new User(usuarioNome, usuarioSobrenome, usuarioEmail, usuarioUser, usuarioSenha)
+    console.log(newUser)
 
     try {
         const resposta = await fetch('http://localhost:8080/clients-data', {
@@ -95,4 +97,6 @@ formCadastro.addEventListener('submit', async (e) => {
     } catch (error) {
         console.error("Erro na solicitação", error)
     }
+
+    // Descobrir como enviar um email de boas vindas após o cadastro
 })
