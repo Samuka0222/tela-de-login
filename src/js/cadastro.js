@@ -1,12 +1,11 @@
-import validaSenha from "./modules/validaSenha.js"
-import validaSenhaConfirmada from "./modules/validaSenhaConfirmada.js"
+import verificaRequisitosSenha from "./modules/verificaRequisitosSenha.js";
+import validaSenha from "./modules/validaSenha.js";
 import validaUsuario from "./modules/validaUsuario.js"
-import validaEmail from "./modules/validaEmail.js"
-import mensagensDeErro from "./modules/mensagens.js"
+import validaSenhaConfirmada from "./modules/validaSenhaConfirmada.js";
+import mensagensDeErro from "./modules/mensagens.js";
 
 class User {
-    constructor(userId, nome, sobrenome, email, usuario, senha) {
-        this.userId = userId
+    constructor(nome, sobrenome, email, usuario, senha) {
         this.nome = nome
         this.sobrenome = sobrenome
         this.email = email
@@ -15,26 +14,12 @@ class User {
     }
 }
 
-let usuarios = JSON.parse(localStorage.getItem('usuarios')) || []
-usuarios = usuarios.map((data) => new User(data.userId, data.nome, data.sobrenome, data.email, data.usuario, data.senha));
-
-let idCounter = () => {
-    // Encontra o ID mais alto atual
-    let maxId = -1
-    usuarios.forEach((cliente) => {
-        const id = parseInt(cliente.userId.substr(4), 10)
-        if (!isNaN(id) && id > maxId) {
-            maxId = id
-        }
-    })
-    return maxId + 1
-}
-
-// Detalhes
+// Dialog para requisitos de senha
 const senhaRequisitos = document.getElementById('senhaRequisitos')
 
 // Inputs
 const inputSenha = document.getElementById('input-senha')
+const inputUsuario = document.getElementById('input-user')
 
 inputSenha.addEventListener('focus', () => {
     senhaRequisitos.classList.remove('hidden')
@@ -45,8 +30,23 @@ inputSenha.addEventListener('blur', () => {
 })
 
 
+// Verificação de requisitos da senha
+inputSenha.addEventListener('input', () => {
+    const senha = inputSenha.value
+    verificaRequisitosSenha(senha)
+})
+
+inputUsuario.addEventListener('blur', () => {
+    const usuario = inputUsuario.value
+    const usuarioValido = validaUsuario(usuario)
+    if (!usuarioValido) {
+        mensagensDeErro.usuario("<p>Formato de usuário incorreto, tente novamente.</p>")
+        return
+    }
+})
+
 const formCadastro = document.getElementById('formCadastro')
-formCadastro.addEventListener('submit', (e) => {
+formCadastro.addEventListener('submit', async (e) => {
     e.preventDefault()
     
     // Variaveis guardando o valor digitado no input
@@ -57,49 +57,46 @@ formCadastro.addEventListener('submit', (e) => {
     let usuarioSenha = document.getElementById('input-senha').value
     let usuarioSenhaConfirmada = document.getElementById('input-senha-confirmada').value
 
-    //Validação de E-mail
-    const emailValido = validaEmail(usuarioEmail)
-    if (!emailValido) {
-        mensagensDeErro.email()
-        return
-    }
-
-    // validação de usuário
-    const usuarioValido = validaUsuario(usuarioUser)
-    if (!usuarioValido) {
-        mensagensDeErro.usuario()
-        return
-    }
-
-    // Validação da senha
-    const senha = inputSenha.value
-    const senhaValida = validaSenha(senha)
+    // Confirmação de senha
+    const senhaValida = validaSenha(usuarioSenha)
     if (!senhaValida) {
         mensagensDeErro.senha()
-        return
+        return 
     }
 
     // Validação de confirmação de senha
-    const senhaConfirmadaValida = validaSenhaConfirmada(usuarioSenha, usuarioSenhaConfirmada)
+    const senhaConfirmadaValida = validaSenhaConfirmada(senha, usuarioSenhaConfirmada)
     if (!senhaConfirmadaValida) {
         mensagensDeErro.senhaConfirmada()
         return
     }
 
-    // Cria um id dinamico com pelo menos 4 digitos
-    const nextID = idCounter()
-    const userID = 'user' + nextID.toString().padStart(4, '0')
+    let newUser = new User(usuarioNome, usuarioSobrenome, usuarioEmail, usuarioUser, usuarioSenha)
+    console.log(newUser)
 
-    let newUser = new User(userID, usuarioNome, usuarioSobrenome, usuarioEmail, usuarioUser, usuarioSenha)
+    try {
+        const resposta = await fetch('http://localhost:8080/clients-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newUser)
+        })
 
-    usuarios.push(newUser)
+        const data = await resposta.json()
 
-    localStorage.setItem('usuarios', JSON.stringify(usuarios))
+        if (resposta.ok) {
+            alert('Usuário cadastrado!')
+            window.location.href = "/index.html"
+        } else {
+            if (data.error) {
+                mensagensDeErro.usuario()
+            }
+            console.error("Erro ao criar o usuário")
+        }
+    } catch (error) {
+        console.error("Erro na solicitação", error)
+    }
 
-    window.location.href = '/index.html'
-
-    console.log(usuarios)
+    // Descobrir como enviar um email de boas vindas após o cadastro
 })
-
-
-export default usuarios
