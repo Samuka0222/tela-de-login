@@ -1,53 +1,49 @@
 let mensagensDeErro = {
-    email: () => {
-        const emailFeedback = document.querySelector('[data-feedback="email"]')
-        emailFeedback.classList.remove('hidden')
-        emailFeedback.classList.add('feedback-erro')
-        emailFeedback.innerHTML = "<p class='animate__animated animate__shakeX'>E-mail inválido, tente novamente.</p>"
-
-        setTimeout(() => {
-            emailFeedback.classList.add('animate__fadeOut')
-        }, 3000)
-
-        setTimeout(() => {
-            emailFeedback.classList.add('hidden')
-        }, 4000)
-    }, 
-    
-    usuario: () => {
+    usuario: (mensagem = "<p>Usuário já existente, tente outro usuário.</p>") => {
         const usuarioFeedback = document.querySelector('[data-feedback="usuario"]')
         usuarioFeedback.classList.remove('hidden')
         usuarioFeedback.classList.add('feedback-erro')
-        usuarioFeedback.innerHTML = "<p>Usuário inválido ou já existente, tente novamente.</p>"
+        usuarioFeedback.innerHTML = mensagem
 
-        setTimeout(() => {
-            usuarioFeedback.classList.add('animate__fadeOut')
-        }, 3000)
+        clearTimeout(usuarioFeedback.fadeOutTimeout);
+        clearTimeout(usuarioFeedback.hideTimeout);
 
-        setTimeout(() => {
-            usuarioFeedback.classList.add('hidden')
-        }, 4000)
+        // Define um novo temporizador para animação de fadeOut
+        usuarioFeedback.fadeOutTimeout = setTimeout(() => {
+            usuarioFeedback.classList.add('animate__fadeOut');
+        }, 3000);
+
+        // Define um novo temporizador para esconder o feedback
+        usuarioFeedback.hideTimeout = setTimeout(() => {
+            usuarioFeedback.classList.remove('animate__fadeOut')
+            usuarioFeedback.classList.add('hidden');
+        }, 4000);
+        
     },
-    
+
     senha: () => {
         const senhaFeedback = document.querySelector('[data-feedback="senha"]')
-        senhaFeedback.classList.remove('hidden')
-        senhaFeedback.classList.add('feedback-erro')
+        senhaFeedback.classList.replace('hidden', 'feedback-erro')
         senhaFeedback.innerHTML = "<p>A senha não está no padrão, tente novamente.</p>"
 
-        setTimeout(() => {
-            senhaFeedback.classList.add('animate__fadeOut')
-        }, 3000)
+        clearTimeout(senhaFeedback.fadeOutTimeout);
+        clearTimeout(senhaFeedback.hideTimeout);
 
-        setTimeout(() => {
-            senhaFeedback.classList.add('hidden')
-        }, 4000)
+        // Define um novo temporizador para animação de fadeOut
+        senhaFeedback.fadeOutTimeout = setTimeout(() => {
+            senhaFeedback.classList.add('animate__fadeOut');
+        }, 3000);
+
+        // Define um novo temporizador para esconder o feedback
+        senhaFeedback.hideTimeout = setTimeout(() => {
+            senhaFeedback.classList.remove('animate__fadeOut')
+            senhaFeedback.classList.add('hidden');
+        }, 4000);
     },
 
     senhaConfirmada: () => {
         const senhaConfirmadaFeedback = document.querySelector('[data-feedback="senhaConfirmada"]')
-        senhaConfirmadaFeedback.classList.remove('hidden')
-        senhaConfirmadaFeedback.classList.add('feedback-erro')
+        senhaConfirmadaFeedback.classList.replace('hidden', 'feedback-erro')
         senhaConfirmadaFeedback.innerHTML = "<p>A confirmação de senha está incorreta, favor verificar.</p>"
 
         setTimeout(() => {
@@ -55,6 +51,7 @@ let mensagensDeErro = {
         }, 3000)
 
         setTimeout(() => {
+            senhaConfirmadaFeedback.classList.remove('animate__fadeOut')
             senhaConfirmadaFeedback.classList.add('hidden')
         }, 4000)
     },

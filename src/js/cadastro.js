@@ -1,7 +1,8 @@
-import validaSenha from "./modules/validaSenha.js"
-import validaSenhaConfirmada from "./modules/validaSenhaConfirmada.js"
-import validaEmail from "./modules/validaEmail.js"
-import mensagensDeErro from "./modules/mensagens.js"
+import verificaRequisitosSenha from "./modules/verificaRequisitosSenha.js";
+import validaSenha from "./modules/validaSenha.js";
+import validaUsuario from "./modules/validaUsuario.js"
+import validaSenhaConfirmada from "./modules/validaSenhaConfirmada.js";
+import mensagensDeErro from "./modules/mensagens.js";
 
 class User {
     constructor(nome, sobrenome, email, usuario, senha) {
@@ -18,6 +19,7 @@ const senhaRequisitos = document.getElementById('senhaRequisitos')
 
 // Inputs
 const inputSenha = document.getElementById('input-senha')
+const inputUsuario = document.getElementById('input-user')
 
 inputSenha.addEventListener('focus', () => {
     senhaRequisitos.classList.remove('hidden')
@@ -30,10 +32,14 @@ inputSenha.addEventListener('blur', () => {
 // Validação da senha
 inputSenha.addEventListener('input', () => {
     const senha = inputSenha.value
-    console.log(senha)
-    const senhaValida = validaSenha(senha)
-    if (!senhaValida) {
-        mensagensDeErro.senha()
+    verificaRequisitosSenha(senha)
+})
+
+inputUsuario.addEventListener('blur', () => {
+    const usuario = inputUsuario.value
+    const usuarioValido = validaUsuario(usuario)
+    if (!usuarioValido) {
+        mensagensDeErro.usuario("<p>Formato de usuário incorreto, tente novamente.</p>")
         return
     }
 })
@@ -50,13 +56,12 @@ formCadastro.addEventListener('submit', async (e) => {
     let usuarioSenha = document.getElementById('input-senha').value
     let usuarioSenhaConfirmada = document.getElementById('input-senha-confirmada').value
 
-    //Validação de E-mail
-    const emailValido = validaEmail(usuarioEmail)
-    if (!emailValido) {
-        mensagensDeErro.email()
-        return
+    // Confirmação de senha
+    const senhaValida = validaSenha(usuarioSenha)
+    if (!senhaValida) {
+        mensagensDeErro.senha()
+        return 
     }
-
 
     // Validação de confirmação de senha
     const senhaConfirmadaValida = validaSenhaConfirmada(usuarioSenha, usuarioSenhaConfirmada)
@@ -76,9 +81,15 @@ formCadastro.addEventListener('submit', async (e) => {
             body: JSON.stringify(newUser)
         })
 
+        const data = await resposta.json()
+
         if (resposta.ok) {
-            console.log("Usuário cadastrado")
+            alert('Usuário cadastrado!')
+            window.location.href = "/index.html"
         } else {
+            if (data.error) {
+                mensagensDeErro.usuario()
+            }
             console.error("Erro ao criar o usuário")
         }
     } catch (error) {
