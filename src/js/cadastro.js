@@ -3,6 +3,7 @@ import validaSenha from "./modules/validaSenha.js";
 import validaUsuario from "./modules/validaUsuario.js"
 import validaSenhaConfirmada from "./modules/validaSenhaConfirmada.js";
 import mensagensDeErro from "./modules/mensagens.js";
+let users = [];
 
 class User {
     constructor(nome, sobrenome, email, usuario, senha) {
@@ -48,7 +49,7 @@ inputUsuario.addEventListener('blur', () => {
 const formCadastro = document.getElementById('formCadastro')
 formCadastro.addEventListener('submit', async (e) => {
     e.preventDefault()
-    
+
     // Variaveis guardando o valor digitado no input
     let usuarioNome = document.getElementById('input-nome').value
     let usuarioSobrenome = document.getElementById('input-sobrenome').value
@@ -61,42 +62,22 @@ formCadastro.addEventListener('submit', async (e) => {
     const senhaValida = validaSenha(usuarioSenha)
     if (!senhaValida) {
         mensagensDeErro.senha()
-        return 
+        return
     }
 
     // Validação de confirmação de senha
-    const senhaConfirmadaValida = validaSenhaConfirmada(senha, usuarioSenhaConfirmada)
+    const senhaConfirmadaValida = validaSenhaConfirmada(usuarioSenha, usuarioSenhaConfirmada)
     if (!senhaConfirmadaValida) {
         mensagensDeErro.senhaConfirmada()
         return
     }
 
     let newUser = new User(usuarioNome, usuarioSobrenome, usuarioEmail, usuarioUser, usuarioSenha)
-    console.log(newUser)
+    users.push(newUser);
 
-    try {
-        const resposta = await fetch('http://localhost:8080/clients-data', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newUser)
-        })
+    localStorage.setItem('users', JSON.stringify(users));
 
-        const data = await resposta.json()
+    alert("Parabéns seu porra, você conseguiu!")
+    window.location.href = "/index.html";
 
-        if (resposta.ok) {
-            alert('Usuário cadastrado!')
-            window.location.href = "/index.html"
-        } else {
-            if (data.error) {
-                mensagensDeErro.usuario()
-            }
-            console.error("Erro ao criar o usuário")
-        }
-    } catch (error) {
-        console.error("Erro na solicitação", error)
-    }
-
-    // Descobrir como enviar um email de boas vindas após o cadastro
 })
