@@ -77,7 +77,7 @@ formCadastro.addEventListener('submit', async (e) => {
 
     localStorage.setItem('users', JSON.stringify(users));
 
-    alert("Parabéns seu porra, você conseguiu!")
+    alert("Usuário cadastrado com sucesso!")
     window.location.href = "/index.html";
 
 })
